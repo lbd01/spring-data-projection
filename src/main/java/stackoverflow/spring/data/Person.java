@@ -10,15 +10,17 @@ public class Person {
     private Integer id;
     private String name;
     private String lastname;
-    @OneToMany(mappedBy = "personId")
+    private String sshKey;
+    @OneToMany(mappedBy = "personId",fetch = FetchType.EAGER)
     private List<ContactInfo> contactInfoList;
 
     public Person() {}
 
-    public Person(Integer id, String name, String lastname) {
+    public Person(Integer id, String name, String lastname, String sshKey) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
+        this.sshKey = sshKey;
     }
 
     public Integer getId() {
@@ -43,6 +45,14 @@ public class Person {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getSshKey() {
+        return sshKey;
+    }
+
+    public void setSshKey(String sshKey) {
+        this.sshKey = sshKey;
     }
 
     public List<ContactInfo> getContactInfoList() {
