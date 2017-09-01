@@ -15,9 +15,6 @@ public class PersonRepositoryTest {
     @Autowired
     private PersonRepository pRepo;
 
-    @Autowired
-    private ContactInfoRepository cRepo;
-
     @Test
     public void test() {
         List<Person> list = pRepo.findAll();  //select generatedAlias0 from Person as generatedAlias0
